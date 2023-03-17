@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Systems</h1>
+
+<div id="things">
+  <% @things.each do |thing| %>
+
+  <div id="<%= dom_id thing %>">
+  <p>
+    <%= link_to thing.name, thing %>
+  </p>
+  </div>
+
+  <% end %>
+</div>
+
+<%= link_to "-- Create a new asset --", new_thing_path %>
+

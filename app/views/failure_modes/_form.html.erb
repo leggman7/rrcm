@@ -1,0 +1,42 @@
+<%= form_with(model: failure_mode) do |form| %>
+  <% if failure_mode.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(failure_mode.errors.count, "error") %> prohibited this failure_mode from being saved:</h2>
+
+      <ul>
+        <% failure_mode.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :impact_to, style: "display: block" %>
+    <%= form.text_field :impact_to %>
+  </div>
+
+  <div>
+    <%= form.label :criticality, style: "display: block" %>
+    <%= form.number_field :criticality %>
+  </div>
+
+  <div>
+    <%= form.label :thing_id, style: "display: block" %>
+    <%= form.text_field :thing_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

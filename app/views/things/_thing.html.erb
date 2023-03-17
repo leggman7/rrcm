@@ -1,0 +1,12 @@
+<div id="<%= dom_id thing %>">
+  <h1>
+    <%= "#{thing.name}" %>
+  </h1>
+  <h3><%= "(id: #{thing.id} criticality:#{thing.criticality} )"%></h3>
+
+  <p>
+    <strong>Parent:</strong>
+    <%= thing.parent ? thing.parent.name : " " %>
+  </p>
+
+</div>

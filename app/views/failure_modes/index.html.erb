@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Failure modes</h1>
+
+<div id="failure_modes">
+  <% @failure_modes.each do |failure_mode| %>
+    <%= render failure_mode %>
+    <p>
+      <%= link_to "Show this failure mode", failure_mode %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New failure mode", new_failure_mode_path %>

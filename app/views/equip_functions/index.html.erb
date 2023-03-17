@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Equip functions</h1>
+
+<div id="equip_functions">
+  <% @equip_functions.each do |equip_function| %>
+    <%= render equip_function %>
+    <p>
+      <%= link_to "Show this equip function", equip_function %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New equip function", new_equip_function_path %>
