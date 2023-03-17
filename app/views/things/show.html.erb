@@ -5,25 +5,34 @@
 <table class="table">
     <thead>
         <tr>
-            <th colspan="4">Equipment Functions <%= link_to "(Add)", new_equip_function_path %></th>
+            <th colspan="4">System</th>
         </tr>
         <tr>
-            <th>name</th>
-            <th>tracked description</th>
-            <th>value</th>
-            <th>asset_reference</th>
+          <th>id</th>
+          <th>Function name <%= link_to "(Add New Function)", new_equip_function_path %></th>
+          <th>id</th>
+          <th>Functional Failure <%= link_to "(Add New Failure)", new_functional_failure_path %></th>
         </tr>
     </thead>
     <tbody>
       <% @thing.equip_functions.each do |function| %>
-        <%= render function %>
+            <td><%= function.id %></td>
+            <td><%= link_to function.name, function %></td>
+        <% function.functional_failures.each do |functional_failure| %>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><%= functional_failure.id %></td>
+            <td><%= functional_failure.description %></td>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
 </table>
 
 <div class="failure_modes">
-  <table class="table">
-      <thead>
+      <table class="table">
+        <thead>
           <tr>
               <th colspan="4">Failure Modes <%= link_to "(Add)", new_failure_mode_path %></th>
           </tr>
@@ -34,7 +43,7 @@
               <th>criticality</th>
               <th>asset_reference</th>
           </tr>
-      </thead>
+        </thead>
       <tbody>
         <% @thing.failure_modes.each do |failure_mode| %>
           <%= render failure_mode %>
@@ -45,7 +54,7 @@
 
 <br><br>
 <div class="children">
-  <h4>Children: <%= link_to "(Add)", new_thing_path %></h4>
+  <h4>Children:</h4>
   <div>
     <% @thing.components.each do |component| %>
     <%= link_to component.name, component %>
@@ -53,8 +62,11 @@
   <% end %>
 </div>
 <br>
-<div class="inline-block"> 
-  <%= link_to "Edit this asset", edit_thing_path(@thing) %> |
-  <%= link_to "Back to list of assets", things_path %>
-  <%= button_to "Delete this asset", @thing, method: :delete %>
+<div class=""> 
+
+      <%= link_to "Add new asset", new_thing_path, class: "" %> |
+      <%= link_to "Edit this asset", edit_thing_path(@thing) %> |
+      <%= link_to "Back to list of assets", things_path, class: "" %>
+      <%= button_to "Delete this asset", @thing, method: :delete, class: "btn btn-outline-primary" %>
+
 </div>

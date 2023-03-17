@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :functional_failures
   get 'static_pages/home'
   get 'static_pages/criticality'
   get 'static_pages/how_to'

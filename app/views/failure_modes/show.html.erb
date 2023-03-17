@@ -1,10 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
+<%= render "things/table_header" %>
 <%= render @failure_mode %>
+      </tbody>
+  </table>
 
 <div>
   <%= link_to "Edit this failure mode", edit_failure_mode_path(@failure_mode) %> |
   <%= link_to "Back to failure modes", failure_modes_path %>
-
   <%= button_to "Destroy this failure mode", @failure_mode, method: :delete %>
 </div>

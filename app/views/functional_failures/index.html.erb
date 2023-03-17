@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Functional failures</h1>
+
+<div id="functional_failures">
+  <% @functional_failures.each do |functional_failure| %>
+    <%= render functional_failure %>
+    <p>
+      <%= link_to "Show this functional failure", functional_failure %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New functional failure", new_functional_failure_path %>

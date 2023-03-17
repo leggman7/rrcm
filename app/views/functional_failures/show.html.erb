@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @functional_failure %>
+
+<div>
+  <%= link_to "Edit this functional failure", edit_functional_failure_path(@functional_failure) %> |
+  <%= link_to "Back to functional failures", functional_failures_path %>
+
+  <%= button_to "Destroy this functional failure", @functional_failure, method: :delete %>
+</div>

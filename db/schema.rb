@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_17_152516) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_17_185120) do
   create_table "equip_functions", force: :cascade do |t|
     t.string "name"
     t.string "tracked_description"
@@ -32,6 +32,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_17_152516) do
     t.index ["thing_id"], name: "index_failure_modes_on_thing_id"
   end
 
+  create_table "functional_failures", force: :cascade do |t|
+    t.text "description"
+    t.integer "equip_function_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["equip_function_id"], name: "index_functional_failures_on_equip_function_id"
+  end
+
   create_table "jons", force: :cascade do |t|
     t.text "states"
     t.datetime "created_at", null: false
@@ -49,4 +57,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_17_152516) do
 
   add_foreign_key "equip_functions", "things"
   add_foreign_key "failure_modes", "things"
+  add_foreign_key "functional_failures", "equip_functions"
 end
