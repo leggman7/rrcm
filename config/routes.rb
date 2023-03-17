@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'static_pages/home'
+  get 'static_pages/criticality'
+  get 'static_pages/how_to'
   resources :failure_modes
   resources :equip_functions
   resources :things

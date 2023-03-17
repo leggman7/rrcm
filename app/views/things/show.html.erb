@@ -2,7 +2,7 @@
 
 <%= render @thing %>
 
-<table>
+<table class="table">
     <thead>
         <tr>
             <th colspan="4">Equipment Functions <%= link_to "(Add)", new_equip_function_path %></th>
@@ -21,17 +21,8 @@
     </tbody>
 </table>
 
-<div class="children">
-  <h4>Children: <%= link_to "(Add)", new_thing_path %></h4>
-  <div>
-    <% @thing.components.each do |component| %>
-    <%= link_to component.name, component %>
-  </div>
-  <% end %>
-</div>
-
 <div class="failure_modes">
-  <table>
+  <table class="table">
       <thead>
           <tr>
               <th colspan="4">Failure Modes <%= link_to "(Add)", new_failure_mode_path %></th>
@@ -52,9 +43,18 @@
   </table>
 </div>
 
-<br><br><br>
-<div> 
+<br><br>
+<div class="children">
+  <h4>Children: <%= link_to "(Add)", new_thing_path %></h4>
+  <div>
+    <% @thing.components.each do |component| %>
+    <%= link_to component.name, component %>
+  </div>
+  <% end %>
+</div>
+<br>
+<div class="inline-block"> 
   <%= link_to "Edit this asset", edit_thing_path(@thing) %> |
   <%= link_to "Back to list of assets", things_path %>
-  <%= button_to "Destroy this thing", @thing, method: :delete %>
+  <%= button_to "Delete this asset", @thing, method: :delete %>
 </div>
